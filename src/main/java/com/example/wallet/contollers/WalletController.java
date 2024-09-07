@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.UUID;
 
 @RestController
-@RequestMapping("/api/v1/wallets")
+@RequestMapping("/api/v1/wallet")
 public class WalletController {
     private final WalletRepository walletRepository;
 
