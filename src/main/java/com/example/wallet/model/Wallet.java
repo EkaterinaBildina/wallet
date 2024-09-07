@@ -16,10 +16,13 @@ public class Wallet {
     private double balance;
 
     public Wallet() {
-        this.walletId = UUID.randomUUID();
         this.balance = 0;
     }
 
+    /**
+     * Getters and Setters
+     * @return walletId, balance
+     */
     public UUID getWalletId() {
         return walletId;
     }
@@ -36,10 +39,18 @@ public class Wallet {
         this.balance = balance;
     }
 
+    /**
+     *
+     * @param amount
+     */
     public void deposit(double amount) {
         balance += amount;
     }
 
+    /**
+     *
+     * @param amount
+     */
     public void withdraw(double amount) {
         if (balance >= amount) {
             balance -= amount;
