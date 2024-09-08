@@ -57,6 +57,7 @@ public class WalletController {
         private String operationType;
         private double amount;
 
+
         // Getters and Setters
         public UUID getWalletId() {
             return walletId;
@@ -82,5 +83,10 @@ public class WalletController {
             this.amount = amount;
         }
 
+        public WalletOperationRequest(UUID walletId, String operationType, double amount) {
+            this.walletId = walletId;
+            this.operationType = operationType;
+            this.amount = amount;
+        }
     }
 }

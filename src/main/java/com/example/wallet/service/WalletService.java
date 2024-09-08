@@ -33,7 +33,7 @@ public class WalletService {
      * Save changing after the operation is completed.
      */
     public void performOperation(UUID walletId, String operationType, double amount) {
-        Wallet wallet = walletRepository.findById(walletId).orElse(new Wallet());
+        Wallet wallet = walletRepository.findById(walletId).orElse(new Wallet(walletId, amount));
         wallet.setWalletId(walletId);
         if ("DEPOSIT".equalsIgnoreCase(operationType)) {
             wallet.setBalance(wallet.getBalance() + amount);

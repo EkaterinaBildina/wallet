@@ -15,9 +15,11 @@ public class Wallet {
     private UUID walletId;
     private double balance;
 
-    public Wallet() {
+    public Wallet(UUID walletId, double balance) {
+        this.walletId = walletId;
         this.balance = 0;
     }
+
 
     /**
      * Getters and Setters
@@ -37,25 +39,5 @@ public class Wallet {
 
     public void setBalance(double balance) {
         this.balance = balance;
-    }
-
-    /**
-     *
-     * @param amount
-     */
-    public void deposit(double amount) {
-        balance += amount;
-    }
-
-    /**
-     *
-     * @param amount
-     */
-    public void withdraw(double amount) {
-        if (balance >= amount) {
-            balance -= amount;
-        } else {
-            throw new IllegalArgumentException("Insufficient funds in the account");
-        }
     }
 }
