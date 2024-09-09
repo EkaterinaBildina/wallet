@@ -1,6 +1,10 @@
-FROM openjdk:17-jdk-slim
-WORKDIR /wallet
-COPY ${JAR_FILE} wallet.jar
-ENV JAVA_OPTS=""
+FROM maven:3.9.9 AS builder
+WORKDIR /JavaPJT/Wallet/wallet/wallet
+COPY pom.xml .
+COPY src ./src
+RUN mvn clean package -DskipTests
+FROM openjdk:11-jre-slim
+WORKDIR /JavaPJT/Wallet/wallet/wallet
+COPY --from=builder /wallet/target/wallet-app.jar wallet.jar
+ENTRYPOINT ["java", "-jar", "wallet.jar"]
 EXPOSE 8080
-CMD ["sh", "-c", "java $JAVA_OPTS -jar wallet.jar"]
